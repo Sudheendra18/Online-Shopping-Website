@@ -53,8 +53,8 @@ ShopEase is a full-featured e-commerce web application built with Python's Flask
 ### 1\. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone <https://github.com/Sudheendra18/Online-Shopping-Website>
+cd <Online-Shopping-Website>
 ```
 
 ### 2\. Create a Virtual Environment
