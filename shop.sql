@@ -269,3 +269,19 @@ BEGIN
         SET MESSAGE_TEXT = 'Cannot set negative stock quantity';
     END IF;
 END//
+
+-- Trigger 4: Restore stock when an order item is deleted
+CREATE TRIGGER after_order_item_delete
+AFTER DELETE ON Order_Items
+FOR EACH ROW
+BEGIN
+    UPDATE Products
+    SET stock_quantity = stock_quantity + OLD.quantity
+    WHERE product_id = OLD.product_id;
+    
+    UPDATE Product_Sizes
+    SET stock_quantity = stock_quantity + OLD.quantity
+    WHERE product_size_id = OLD.product_size_id;
+END//
+
+DELIMITER ;
